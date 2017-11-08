@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>JSF 2.1 Cadastro</title>
+</h:head>
+
+<h:body bgcolor="white">
+	<h2>JSF 2.1 Ola Mundo - page.xhtml</h2>
+	<h:form id="formCadastro">
+
+		<h:inputText value="#{olaBean.nome}"></h:inputText>
+		<h:commandButton value="Bem Vindo" action="page"></h:commandButton>
+
+		<p>
+			<h:outputText value="Nome:" for="idNome" />
+			<h:inputText id="idNome" value="#{cadastroBean.nome}" />
+			<!-- </h:outputText> -->
+		</p>
+
+		<p>
+			<h:outputText value="Email:" for="idEmail" />
+			<h:inputText id="idEmail" value="#{cadastroBean.email}" />
+			<!--  </h:outputText>-->
+		</p>
+
+		<p>
+			<h:outputText value="Diga o bairro: " for="idBairro" />
+			<h:selectOneMenu id="idBairro" value="cadastroBean.bairro">
+				<f:selectItem itemValue="99" itemLabel="Selecione o bairro:" />
+				<f:selectItems value="#{cadastroBean.listaBairros}" />
+			</h:selectOneMenu>
+
+			<!-- </h:outputText> -->
+		</p>
+
+		<p></p>
+
+		<h:commandButton action="#{cadastroBean.nome}" />
+
+	</h:form>
+</h:body>
+</html>
